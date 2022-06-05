@@ -39,3 +39,19 @@
     </div>
   </div>
 </div>
+<!--Cards Products-->
+<div class="container mt-3">
+  <div class="row">
+    <ng-container *ngFor="let product of productsList">
+      <div class="card col-md-3">
+        <div style="text-align: center;">
+          <img class="card-products_img" [src]="product.image" alt="">
+        </div>
+        <h5 class="card-products_title">{{product.title}}</h5>
+        <p class="card-products-description">{{product.description}}</p>
+        <p> <strong>Preço:</strong> R${{product.price}}</p>
+        <button class="btn btn-primary">Adicionar ao Carrinho</button>
+      </div>
+    </ng-container>
+  </div>
+</div>

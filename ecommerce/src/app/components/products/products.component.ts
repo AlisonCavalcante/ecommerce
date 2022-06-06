@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   productsList!: IProduct[];
+  setproductsList!: IProduct[];
 
   constructor(
     private productsService: ProductsService,
@@ -19,6 +20,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productsService.getAll().subscribe((res) => {
       this.productsList = res;
+      this.setproductsList = res;
       this.productsList.forEach((product: IProduct) => {
         Object.assign(product, { quantity: 1, total: product.price });
       });
@@ -27,5 +29,12 @@ export class ProductsComponent implements OnInit {
 
   addCart(product: IProduct) {
     this.cartService.addCart(product);
+  }
+
+  getSearch(event: string){
+    const produtosFilter = this.setproductsList.filter((p: any) => {
+      return !p.title.indexOf(event);
+    })
+    this.productsList = produtosFilter;
   }
 }

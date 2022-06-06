@@ -50,7 +50,7 @@
         <h5 class="card-products_title">{{product.title}}</h5>
         <p class="card-products-description">{{product.description}}</p>
         <p> <strong>Preço:</strong> R${{product.price}}</p>
-        <button class="btn btn-primary">Adicionar ao Carrinho</button>
+        <button class="btn btn-primary" (click)="addCart(product)">Adicionar ao Carrinho</button>
       </div>
     </ng-container>
   </div>

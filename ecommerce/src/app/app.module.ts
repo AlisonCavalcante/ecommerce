@@ -9,6 +9,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SearchProductsComponent } from './shared/search/search-products/search-products.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SearchProductsComponent } from './shared/search/search-products/search-
     HeaderComponent,
     CartComponent,
     ProductsComponent,
-    SearchProductsComponent
+    SearchProductsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

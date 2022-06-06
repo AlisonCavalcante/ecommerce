@@ -3,46 +3,59 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   public carItemList: any = [];
   public productList = new BehaviorSubject<any>([]);
-  constructor() { }
+  constructor() {}
 
-  getProducts(){
+  getProducts() {
     return this.productList.asObservable();
   }
 
-  setProduct(product: any){
+  setProduct(product: any) {
     this.carItemList.push(...product);
     this.productList.next(product);
   }
 
-  addCart(product: any){
-    this.carItemList.push(product);
-    this.productList.next(this.carItemList);
-    this.getTotalPrice();
-    console.log(this.carItemList);
+  addCart(product: any) {
+    let existProduct = this.verficarProduto(product);
+    if (existProduct == false) {
+      this.carItemList.push(product);
+      this.productList.next(this.carItemList);
+      this.getTotalPrice();
+    }
   }
-  getTotalPrice(): number{
+
+  verficarProduto(product: any): boolean {
+    let existProduct: boolean = false;
+    this.carItemList.map((itemCart: any) => {
+      if (product.id === itemCart.id) {
+        itemCart.quantity += 1;
+        existProduct = true;
+      }
+    });
+    return existProduct;
+  }
+
+  getTotalPrice(): number {
     let total = 0;
     this.carItemList.map((a: any) => {
-      total += a.total;
-    })
+      total += a.total * a.quantity;
+    });
     return total;
   }
 
-  removeCartItem(product: any){
-    this.carItemList.map((a:any, index:any) =>{
-      if(product.id === a.id){
-        this.carItemList.splice(index,1);
+  removeCartItem(product: any) {
+    this.carItemList.map((a: any, index: any) => {
+      if (product.id === a.id) {
+        this.carItemList.splice(index, 1);
       }
-    })
+    });
     this.productList.next(this.carItemList);
   }
-  removeAllCart(){
+  removeAllCart() {
     this.carItemList = [];
     this.productList.next(this.carItemList);
   }

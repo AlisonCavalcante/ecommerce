@@ -28,4 +28,10 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllCart();
   }
 
+  incrementQuantity(product: any){
+    product.quantity += 1;
+  }
+  decrementQuantity(product: any){
+    product.quantity -= 1;
+  }
 }

@@ -22,8 +22,8 @@
               <td> <img class="product_img" src="{{product.image}}" alt=""> </td>
               <td style="width: 30%">{{product.description}}</td>
               <td style="width: 12%">{{product.price}}</td>
-              <td style="width: 12%">{{product.quantity}}</td>
-              <td style="width: 12%">{{product.total}}</td>
+              <td style="width: 12%"> <button (click)="incrementQuantity(product)" class="btn">+</button> {{product.quantity}} <button (click)="decrementQuantity(product)" class="btn">-</button></td>
+              <td style="width: 12%">{{product.total * product.quantity}}</td>
               <td>
                 <button (click)="removerProduct(product)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>

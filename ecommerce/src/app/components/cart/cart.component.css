@@ -3,6 +3,9 @@
   margin: 25px;
   padding: 25px;
 }
+.product_img{
+  width: 120px;
+}
 
 .center_img {
   height: 162px;

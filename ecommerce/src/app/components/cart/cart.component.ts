@@ -18,7 +18,14 @@ export class CartComponent implements OnInit {
       this.productsLis = res;
       this.total = this.cartService.getTotalPrice();
     })
+  }
 
+  removerProduct(product: any){
+    this.cartService.removeCartItem(product)
+  }
+
+  removeAllCart(){
+    this.cartService.removeAllCart();
   }
 
 }

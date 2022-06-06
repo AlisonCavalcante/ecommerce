@@ -1,10 +1,11 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="productsLis.length != 0">
   <div class="container mt-3">
     <div class="card-table">
       <div class="cart-product">
         <table class="table table-responsive">
           <thead>
             <tr>
+              <th>Sr.No</th>
               <th>Nome Produto</th>
               <th>Imagem Produto</th>
               <th>Descrição</th>
@@ -15,18 +16,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let product of productsLis">
-              <td>Pc</td>
-              <td>Imagem</td>
-              <td>Muito bom</td>
-              <td>3.000</td>
-              <td>1</td>
-              <td>3.000</td>
+            <tr *ngFor="let product of productsLis, let i = index">
+              <td>{{i+1}}</td>
+              <td>{{product.title}}</td>
+              <td> <img class="product_img" src="{{product.image}}" alt=""> </td>
+              <td style="width: 30%">{{product.description}}</td>
+              <td style="width: 12%">{{product.price}}</td>
+              <td style="width: 12%">{{product.quantity}}</td>
+              <td style="width: 12%">{{product.total}}</td>
               <td>
-                <button class="btn btn-danger">
+                <button (click)="removerProduct(product)" class="btn btn-danger">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </td>
+            </tr>
+            <tr>
+              <td colspan="4"></td>
+              <td>
+              <button (click)="removeAllCart()" class="btn btn-danger">Esvaziar</button>
+              </td>
+              <td >
+                <button routerLink="/products" class="btn btn-primary">Comprar Mais</button>
+              </td>
+              <td>
+                <button class="btn btn-success">Confira</button>
+              </td>
+              <td><strong>Total: {{total}}</strong> </td>
             </tr>
           </tbody>
         </table>
@@ -34,7 +49,7 @@
     </div>
   </div>
 </ng-container>
-<ng-container *ngIf="false">
+<ng-container *ngIf="productsLis.length === 0">
   <div class="container">
     <div class="card">
       <h5 class="card-title">Meu Carrinho</h5>

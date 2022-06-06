@@ -40,6 +40,7 @@ export class CartService {
         this.carItemList.splice(index,1);
       }
     })
+    this.productList.next(this.carItemList);
   }
   removeAllCart(){
     this.carItemList = [];

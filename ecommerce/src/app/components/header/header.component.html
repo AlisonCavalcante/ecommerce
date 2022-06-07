@@ -1,18 +1,24 @@
 <header>
-  <div class="navbar navbar-dark bg-primary shadow-sm">
+  <div class="navbar navbar-dark bg-warning shadow-sm">
     <div class="navbar-brand align-item-center d-flex">
      <i style="font-size: 40px; margin-left: 20px;" class="fas fa-shipping-fast"> &nbsp;
 
      </i>
-     <strong>FlipKart</strong>
+     <strong>Ecommerce</strong>
      <!-- <div class="form-group">
        <input (keyup)="searchProduct()" [(ngModel)]="textSearch" type="text" class="form-control" placeholder="search products">
      </div> -->
      <!-- <span class="fas fa-search search-icon"></span> -->
     </div>
-    <button routerLink="/cart" class="btn d-flex btn-primary">
-      <i style="font-size: 30px; margin-right: 10px;" class="fas fa-cart-plus"></i>
-      <div style="font-size: 20px; margin-right: 10px;" class="badger bg-danger">{{totalProductsCart}}</div>
-    </button>
+    <div class="content-buttons">
+      <div style="font-size: 30px;">
+        <i routerLink="/login" style="cursor: pointer;" class="fa fa-user"></i>
+      </div>
+      <button routerLink="/cart" class="btn d-flex btn-warning">
+        <i style="font-size: 30px; margin-right: 10px;" class="fas fa-cart-plus"></i>
+        <div style="font-size: 20px; margin-right: 10px;" class="badger ">{{totalProductsCart}}</div>
+      </button>
+    </div>
+
   </div>
 </header>

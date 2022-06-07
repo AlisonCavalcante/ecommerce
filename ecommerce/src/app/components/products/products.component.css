@@ -9,7 +9,13 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: .25rem;
 }
-
+.loading-spinner{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center ;
+  text-align: center;
+}
 .item{
   margin: 0 15px;
   text-align: center;
@@ -28,11 +34,11 @@
   width: 200px;
   height: 200px;
   margin-bottom: 15px;
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .card-products_img:hover {
-  transition: 0.3s ease-in-out;
+  transition: 0.5s ease-in-out;
   transform: scale(1.1);
 }
 
@@ -47,6 +53,11 @@
 .item a:hover {
   color: blue;
   cursor: pointer;
+}
+
+.btn:hover {
+  transition: 0.5s ease-in-out;
+  border: 2px solid black;
 }
 
 

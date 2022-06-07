@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { CartService } from './../../services/cart.service';
 import { IProduct } from './../../shared/models/IProduct';
 import { Component, OnInit } from '@angular/core';
@@ -10,6 +11,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   productsList!: IProduct[];
+  productsList$!: Observable<IProduct[]>;
   setproductsList!: IProduct[];
   modaMasculina: string = "men's clothing";
   modaFeminina: string = "women's clothing";
@@ -19,7 +21,8 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getAllProducts();
+    // this.productsList$ = this.productsService.getAll();
+     this.getAllProducts();
   }
 
   addCart(product: IProduct) {

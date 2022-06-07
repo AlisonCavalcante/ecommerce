@@ -3,6 +3,10 @@
   margin: 25px;
   padding: 25px;
 }
+
+.table{
+  margin-bottom: 5%;
+}
 .product_img{
   width: 120px;
 }

@@ -36,12 +36,12 @@
               <button (click)="removeAllCart()" class="btn btn-danger">Esvaziar</button>
               </td>
               <td >
-                <button routerLink="/products" class="btn btn-primary">Comprar Mais</button>
+                <button routerLink="/products" class="btn btn-warning">Comprar Mais</button>
               </td>
               <td>
-                <button class="btn btn-success">Confira</button>
+                <button class="btn btn-success">Confirmar</button>
               </td>
-              <td><strong>Total: {{total}}</strong> </td>
+              <td><strong>Total: {{total | number:'1.1-2'}}</strong> </td>
             </tr>
           </tbody>
         </table>
@@ -62,7 +62,7 @@
       />
       <h4>Seu carrinho está vazio!</h4>
       <h6>Adicione um item agora mesmo</h6>
-      <button routerLink="/products" class="btn btn-primary">
+      <button routerLink="/products" style="font-weight: bold;" class="btn btn-warning">
         Compre agora
       </button>
     </div>

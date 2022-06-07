@@ -60,7 +60,7 @@
 <!--Cards Products-->
 <div class="container mt-3">
   <div class="row">
-    <ng-container *ngFor="let product of productsList">
+    <ng-container *ngFor="let product of productsList; else loading">
       <div class="card col-md-3">
         <div style="text-align: center;">
           <img class="card-products_img" [src]="product.image" alt="">
@@ -68,8 +68,16 @@
         <h5 class="card-products_title">{{product.title}}</h5>
         <p class="card-products-description">{{product.description}}</p>
         <p> <strong>Preço:</strong> R${{product.price}}</p>
-        <button class="btn btn-primary" (click)="addCart(product)">Adicionar ao Carrinho</button>
+        <button class="btn btn-warning" style="font-weight: bold;" (click)="addCart(product)">Adicionar ao Carrinho</button>
       </div>
     </ng-container>
   </div>
 </div>
+<!-- <ng-container #loading>
+  <div class="text-center loading-spinner" >
+    <div class="loading-spinner__element mt-3 spinner-border text-dark" style="width: 150px; height: 150px;" role="status">
+      <span  class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-container> -->
+

@@ -30,8 +30,14 @@ export class CartComponent implements OnInit {
 
   incrementQuantity(product: any){
     product.quantity += 1;
+    this.total += product.price;
   }
   decrementQuantity(product: any){
-    product.quantity -= 1;
+    if(product.quantity > 1){
+      product.quantity -= 1;
+      this.total -= product.price;
+    } else {
+      this.cartService.removeCartItem(product)
+    }
   }
 }

@@ -11,20 +11,15 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductsComponent implements OnInit {
   productsList!: IProduct[];
   setproductsList!: IProduct[];
-
+  modaMasculina: string = "men's clothing";
+  modaFeminina: string = "women's clothing";
   constructor(
     private productsService: ProductsService,
     private cartService: CartService
   ) {}
 
   ngOnInit(): void {
-    this.productsService.getAll().subscribe((res) => {
-      this.productsList = res;
-      this.setproductsList = res;
-      this.productsList.forEach((product: IProduct) => {
-        Object.assign(product, { quantity: 1, total: product.price });
-      });
-    });
+    this.getAllProducts();
   }
 
   addCart(product: IProduct) {
@@ -32,9 +27,31 @@ export class ProductsComponent implements OnInit {
   }
 
   getSearch(event: string){
-    const produtosFilter = this.setproductsList.filter((p: any) => {
-      return !p.title.indexOf(event);
+    const produtosFilter = this.setproductsList.filter((product: IProduct) => {
+      return !product.title.indexOf(event);
     })
     this.productsList = produtosFilter;
+  }
+
+  getProductsByCategory(category: string){
+    this.productsService.getProductByCategory(category).subscribe((res) => {
+      this.productsList = res;
+      this.setproductsList = res;
+      this.setQuantityProduct();
+    });
+  }
+
+  getAllProducts(){
+    this.productsService.getAll().subscribe((res) => {
+      this.productsList = res;
+      this.setproductsList = res;
+       this.setQuantityProduct();
+    });
+  }
+
+  setQuantityProduct(){
+    this.productsList.forEach((product: IProduct) => {
+      Object.assign(product, { quantity: 1, total: product.price });
+    });
   }
 }

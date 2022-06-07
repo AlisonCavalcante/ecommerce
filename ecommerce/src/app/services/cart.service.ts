@@ -21,7 +21,7 @@ export class CartService {
 
   addCart(product: any) {
     let existProduct = this.verficarProduto(product);
-    if (existProduct == false) {
+    if (!existProduct) {
       this.carItemList.push(product);
       this.productList.next(this.carItemList);
       this.getTotalPrice();

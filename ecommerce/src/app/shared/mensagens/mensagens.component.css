@@ -1,0 +1,40 @@
+.message {
+  position: fixed;
+  top: 3em;
+  width: 50%;
+  margin-left: 50%;
+  left: -25%;
+  z-index: 10;
+  background-color: white;
+  border: 3px solid #002060;
+  /* padding: 1.5em; */
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.message_header {
+  background-color: rgb(255,193,7);
+  opacity: 0.8;
+  padding: 10px;
+  /* display: flex;
+  justify-content: space-between; */
+  /* margin-bottom: 1rem; */
+}
+
+.message_header button {
+  cursor: pointer;
+  background-color: #002060;
+  color: white;
+  padding: 0.5rem;
+}
+.message_body {
+  background-color: white;
+  margin: 0;
+  padding: 20px;
+}
+.message_body p {
+  font-size: 1.2em;
+  margin: 0;
+
+}
+

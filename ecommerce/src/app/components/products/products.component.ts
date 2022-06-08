@@ -3,6 +3,7 @@ import { CartService } from './../../services/cart.service';
 import { IProduct } from './../../shared/models/IProduct';
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
+import { MensagensService } from 'src/app/services/mensagens.service';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,8 @@ export class ProductsComponent implements OnInit {
   modaFeminina: string = "women's clothing";
   constructor(
     private productsService: ProductsService,
-    private cartService: CartService
+    private cartService: CartService,
+    private mensagemService: MensagensService
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +29,7 @@ export class ProductsComponent implements OnInit {
 
   addCart(product: IProduct) {
     this.cartService.addCart(product);
+    this.mensagemService.addMensagem('Produto Adicionado com Sucesso')
   }
 
   getSearch(event: string){

@@ -1,0 +1,14 @@
+.card{
+  height: 60vh;
+}
+.form_input{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.form_input input {
+  border-radius: 20px;
+}

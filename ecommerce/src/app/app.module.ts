@@ -14,6 +14,7 @@ import { SearchProductsComponent } from './shared/search/search-products/search-
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CampoControlErrorComponent } from './shared/campo-control-error/campo-control-error.component';
+import { MensagensComponent } from './shared/mensagens/mensagens.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CampoControlErrorComponent } from './shared/campo-control-error/campo-c
     SearchProductsComponent,
     FooterComponent,
     LoginComponent,
-    CampoControlErrorComponent
+    CampoControlErrorComponent,
+    MensagensComponent
   ],
   imports: [
     BrowserModule,

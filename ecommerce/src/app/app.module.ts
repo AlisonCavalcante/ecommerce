@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchProductsComponent } from './shared/search/search-products/search-products.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
+import { CampoControlErrorComponent } from './shared/campo-control-error/campo-control-error.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './pages/login/login.component';
     ProductsComponent,
     SearchProductsComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    CampoControlErrorComponent
   ],
   imports: [
     BrowserModule,

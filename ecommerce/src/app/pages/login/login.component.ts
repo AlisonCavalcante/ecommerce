@@ -1,6 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   isIncorect: boolean = false;
   constructor(
     private forrmBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -23,9 +25,15 @@ export class LoginComponent implements OnInit {
     });
   }
   login() {
+    console.log(this.formLogin.errors)
     this.isVerifyLogin = true;
     this.authService.authentication(this.formLogin.value).subscribe(
-      (res) => { console.log(res), this.isVerifyLogin = false},
+      (res) =>
+      { console.log(res),
+        this.isVerifyLogin = false,
+        this.authService.updateLogin(true),
+        this.router.navigate(['/products'])
+      },
       (error) => {alert(error.error), this.isVerifyLogin = false, this.isIncorect = true, this.resetForm()},
     );
   }

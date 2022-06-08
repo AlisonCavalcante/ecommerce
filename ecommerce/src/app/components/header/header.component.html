@@ -11,7 +11,8 @@
     </div>
     <div class="content-buttons">
       <div style="font-size: 30px;">
-        <i routerLink="/login" style="cursor: pointer;" class="fa fa-user"></i>
+        <i *ngIf="!isLoggedIn" routerLink="/login" style="cursor: pointer;" class="fa fa-user"></i>
+        <i *ngIf="isLoggedIn" (click)="logout()" style="cursor: pointer;" class="fa fa-sign-out-alt"></i>
       </div>
       <button routerLink="/cart" class="btn d-flex btn-warning">
         <i style="font-size: 30px; margin-right: 10px;" class="fas fa-cart-plus"></i>
